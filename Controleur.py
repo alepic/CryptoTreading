@@ -3,7 +3,7 @@ import time
 import requests
 import findPatterns as findPatterns
 
-# in minuts, it can be 0 30 60 or 90 (90 means 90 or more )
+# in minuts, it can be 30 60 or 90 (90 means 90 or more )
 time_from_last_purchase = 90
 while True:
     if time_from_last_purchase == 90 :
@@ -23,7 +23,7 @@ while True:
             Candlesticks[i][10] = float(Candlestick[10])
             Candlesticks[i][11] = float(Candlestick[11])
         if (findPatterns.test_hammer(Candlesticks) or findPatterns.test_inverted_hammer(Candlesticks) or findPatterns.test_three_white_soldiers(Candlesticks) ):
-            time_from_last_purchase = 0
+            time_from_last_purchase = 30
             print ("[{}] buy".format(datetime.now()))
         else:
             print("[{}] wait".format(datetime.now()))
