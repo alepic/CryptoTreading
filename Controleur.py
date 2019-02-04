@@ -7,7 +7,7 @@ import findPatterns as findPatterns
 time_from_last_purchase = 90
 while True:
     if time_from_last_purchase == 90 :
-        #anwser = requests.get('https://api.binance.com/api/v1/klines?symbol=ARKBTC&interval=30m&limit=10')
+        anwser = requests.get('https://api.binance.com/api/v1/klines?symbol=ARKBTC&interval=30m&limit=10')
         Candlesticks = [[0]*12 for i in range(0,1000)]
         for i,Candlestick in enumerate(anwser.json()):
             Candlesticks[i][0] = Candlestick[0]
