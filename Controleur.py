@@ -5,6 +5,7 @@ import findPatterns as findPatterns
 
 # in minuts, it can be 30 60 or 90 (90 means 90 or more )
 time_from_last_purchase = 90
+
 while True:
     if time_from_last_purchase == 90 :
         anwser = requests.get('https://api.binance.com/api/v1/klines?symbol=ARKBTC&interval=30m&limit=10')
@@ -35,5 +36,5 @@ while True:
         time_from_last_purchase += 30
 
     #wait untile xx:(0/3)0:05 to get new data and comput nex order.
-    time.sleep(1805-datetime.now().timestamp()%1800)
+    time.sleep(1805-( datetime.now() - datetime(1970,1,1)).total_seconds()%1800)
     pass
